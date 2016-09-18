@@ -1,0 +1,14 @@
+[
+	{
+		"id": "PRE-1",
+		"type": "python",
+		"program": "/database_backup.pyc",
+		"description": "数据库备份"
+	}
+	,{
+		"id": "PRE-2",
+		"type": "python",
+		"program": "/do_nextday.pyc",
+		"description": "切换会计日"
+	}
+]

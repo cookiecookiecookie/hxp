@@ -1,0 +1,41 @@
+[
+	{
+		"id": "JOB-1",
+		"type": "python",
+		"program": "/bug.py",
+		"description": "Visa-万事达文件读入"
+	}
+	,{
+		"id": "JOB-2",
+		"type": "python",
+		"program": "/bug.py",
+		"description": "Visa万事达交易预处理"
+	}
+	,{
+		"id": "JOB-3",
+		"type": "python",
+		"program": "/bug.py",
+		"description": "生成请款文件"
+	},{
+		"id": "JOB-5",
+		"type": "python",
+		"program": "/bug.py",
+		"description": "商户账务处理"
+	}
+	,{
+		"id": "JOB-6",
+		"type": "python",
+		"program": "/bug.py",
+		"description": "生成报表"
+	},{
+		"id": "JOB-7",
+		"type": "python",
+		"program": "/bug.py",
+		"description": "计算手续费"
+	},{
+		"id": "JOB-8",
+		"type": "python",
+		"program": "/bug.py",
+		"description": "日终临时数据清理"
+	}
+]

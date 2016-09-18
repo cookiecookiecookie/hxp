@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.coshine.batsys.mapper.CpJobExecMapper">
+
+    <sql id="cpJobExecBaseColumnSql">
+        id,
+        flow_id,
+        start_time,
+        end_time,
+        status,
+        accounting_date,
+        user_id,
+        total_time,
+        redo_count
+    </sql>
+
+    <sql id="cpJobExecBaseWhereSql">
+        <if test="map!=null">
+            <where>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.id)">
+                    id = #{map.id}
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.flowId)">
+                    AND flow_id = #{map.flowId}
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.startTime)">
+                    AND start_time = #{map.startTime}
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.endTime)">
+                    AND end_time = #{map.endTime}
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.status)">
+                    AND status = #{map.status}
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.accountingDate)">
+                    AND accounting_date = #{map.accountingDate}
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.userId)">
+                    AND user_id = #{map.userId}
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.totalTime)">
+                    AND total_time = #{map.totalTime}
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.redoCount)">
+                    AND redo_count = #{map.redoCount}
+                </if>
+            </where>
+        </if>
+    </sql>
+
+    <insert id="insertCpJobExec" parameterType="com.coshine.batsys.entity.CpJobExec">
+        INSERT INTO cp_job_exec(
+        <include refid="cpJobExecBaseColumnSql"/>
+        )VALUES(
+            #{id},
+            #{flowId},
+            #{startTime},
+            #{endTime},
+            #{status},
+            #{accountingDate},
+            #{userId},
+            #{totalTime},
+            #{redoCount}
+        )
+    </insert>
+        
+    <delete id="deleteCpJobExecById" parameterType="String">
+        DELETE FROM cp_job_exec WHERE id = #{id}
+    </delete>
+
+    <select id="deleteCpJobExecByParams" parameterType="map">
+        DELETE FROM cp_job_exec
+        <include refid="cpJobExecBaseWhereSql"/>
+    </select>
+
+    <update id="updateCpJobExec" parameterType="com.coshine.batsys.entity.CpJobExec">
+        UPDATE cp_job_exec
+        <set>
+            <if test="@com.coshine.batsys.util.Objects@isNotEmpty(flowId)">
+                flow_id = #{flowId} ,
+            </if>
+            <if test="@com.coshine.batsys.util.Objects@isNotEmpty(startTime)">
+                start_time = #{startTime} ,
+            </if>
+            <if test="@com.coshine.batsys.util.Objects@isNotEmpty(endTime)">
+                end_time = #{endTime} ,
+            </if>
+            <if test="@com.coshine.batsys.util.Objects@isNotEmpty(status)">
+                status = #{status} ,
+            </if>
+            <if test="@com.coshine.batsys.util.Objects@isNotEmpty(accountingDate)">
+                accounting_date = #{accountingDate} ,
+            </if>
+            <if test="@com.coshine.batsys.util.Objects@isNotEmpty(userId)">
+                user_id = #{userId} ,
+            </if>
+            <if test="@com.coshine.batsys.util.Objects@isNotEmpty(totalTime)">
+                total_time = #{totalTime} ,
+            </if>
+            <if test="@com.coshine.batsys.util.Objects@isNotEmpty(redoCount)">
+                redo_count = #{redoCount}
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <update id="updateCpJobExecByParams" parameterType="map">
+        <if test="map!=null">
+            UPDATE cp_job_exec
+            <set>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.flowId)">
+                    flow_id = #{map.flowId} ,
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.startTime)">
+                    start_time = #{map.startTime} ,
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.endTime)">
+                    end_time = #{map.endTime} ,
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.status)">
+                    status = #{map.status} ,
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.accountingDate)">
+                    accounting_date = #{map.accountingDate} ,
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.userId)">
+                    user_id = #{map.userId} ,
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.totalTime)">
+                    total_time = #{map.totalTime} ,
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.redoCount)">
+                    redo_count = #{map.redoCount}
+                </if>
+            </set>
+            <where>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.idCondition)">
+                    id = #{map.idCondition}
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.flowIdCondition)">
+                    AND flow_id = #{map.flowIdCondition}
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.startTimeCondition)">
+                    AND start_time = #{map.startTimeCondition}
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.endTimeCondition)">
+                    AND end_time = #{map.endTimeCondition}
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.statusCondition)">
+                    AND status = #{map.statusCondition}
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.accountingDateCondition)">
+                    AND accounting_date = #{map.accountingDateCondition}
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.userIdCondition)">
+                    AND user_id = #{map.userIdCondition}
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.totalTimeCondition)">
+                    AND total_time = #{map.totalTimeCondition}
+                </if>
+                <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.redoCountCondition)">
+                    AND redo_count = #{map.redoCountCondition}
+                </if>
+            </where>
+        </if>
+    </update>
+
+    <select id="searchCpJobExecById" parameterType="String" resultMap="cpJobExecMap">
+        SELECT
+        <include refid="cpJobExecBaseColumnSql"/>
+        FROM cp_job_exec
+        WHERE id = #{id}
+    </select>
+
+    <select id="searchCpJobExecByParams" parameterType="map" resultMap="cpJobExecMap">
+        SELECT
+        <include refid="cpJobExecBaseColumnSql"/>
+        FROM cp_job_exec
+        <include refid="cpJobExecBaseWhereSql"/>
+        <if test="map!=null">
+            <if test="@com.coshine.batsys.util.Objects@isNotEmpty(map.ORDER_BY)">
+                ORDER BY ${map.ORDER_BY}
+            </if>
+        </if>
+    </select>
+
+    <resultMap type="com.coshine.batsys.entity.CpJobExec" id="cpJobExecMap">
+        <id column="id" property="id"/>
+        <result column="flow_id" property="flowId"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="status" property="status"/>
+        <result column="accounting_date" property="accountingDate"/>
+        <result column="user_id" property="userId"/>
+        <result column="total_time" property="totalTime"/>
+        <result column="redo_count" property="redoCount"/>
+    </resultMap>
+
+</mapper>

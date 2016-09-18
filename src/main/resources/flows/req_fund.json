@@ -1,0 +1,8 @@
+[
+	{
+		"id": "JOB-4",
+		"type": "python",
+		"program": "/exec_send_to_mastercard.pyc",
+		"description": "发送万事达文件"
+	}
+]
